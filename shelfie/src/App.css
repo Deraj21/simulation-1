@@ -1,0 +1,33 @@
+.App {
+  text-align: center;
+}
+
+.App div {
+  border: 1px dashed blue;
+}
+
+.header {
+  background-color: #AB2A19;
+}
+
+.body {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+
+}
+
+.dashboard {
+  background-color: #FFFFFF;
+}
+
+.product {
+  background-color: #D34735;
+  display: block;
+  margin: 10px;
+}
+
+.form {
+  background-color: #3AD886;
+}
