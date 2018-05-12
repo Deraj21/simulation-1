@@ -1,13 +1,13 @@
 .App {
   text-align: center;
-}
-
-.App div {
-  border: 1px dashed blue;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .header {
   background-color: #AB2A19;
+  color: #FFFFFF;
+  text-align: left;
+  padding: 0px 40px;
 }
 
 .body {
@@ -15,7 +15,6 @@
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-
 }
 
 .dashboard {
@@ -24,10 +23,17 @@
 
 .product {
   background-color: #D34735;
-  display: block;
+  margin: 10px;
+  min-width: 400px;
+  border-radius: 10px;
+}
+
+.product img {
+  display: inline-block;
   margin: 10px;
 }
 
 .form {
   background-color: #3AD886;
+  padding: 10px;
 }

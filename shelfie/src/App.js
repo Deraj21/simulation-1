@@ -14,14 +14,10 @@ class App extends Component {
           <Dashboard />
           <Form />
         </div>
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" />
       </div>
     );
   }
 }
 
 export default App;
-
-
-/*
-Run npm i axios --save. This is the only package you need to add for our front end.
-*/
