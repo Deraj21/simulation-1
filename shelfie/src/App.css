@@ -7,14 +7,30 @@
   background-color: #AB2A19;
   color: #FFFFFF;
   text-align: left;
-  padding: 0px 40px;
+  padding: 20px 40px;
+}
+
+h3 {
+  text-align: left;
+  margin: 5px;
+}
+
+img {
+  height: 200px;
+  width: 300px;
+  object-fit: cover;
 }
 
 .body {
+  margin: 20px;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  align-items: center;
+  align-items: flex-start;
+}
+
+.body div {
+  border-radius: 20px;
 }
 
 .dashboard {
@@ -23,17 +39,42 @@
 
 .product {
   background-color: #D34735;
-  margin: 10px;
-  min-width: 400px;
-  border-radius: 10px;
+  margin-bottom: 20px;
+  width: 400px;
 }
 
-.product img {
+.product img, .product div {
   display: inline-block;
   margin: 10px;
 }
 
 .form {
   background-color: #3AD886;
-  padding: 10px;
+  padding: 20px;
+  min-width: 300px;
+}
+
+.form input {
+  margin: 5px 0px;
+  width: 100%;
+}
+
+.form > div {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+button {
+  background-color: #ED6B5A;
+  height: 35px;
+  border: none;
+  border-radius: 10px;
+  box-shadow: none;
+}
+
+button:hover {
+  box-shadow: 2px 2px 5px lightgrey;
 }
