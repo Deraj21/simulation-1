@@ -41,9 +41,6 @@ class App extends Component {
 
   render() {
 
-    console.log('rendering');
-    console.log(this.state.products);
-
     return (
       <div className="App">
         <Header />
