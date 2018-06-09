@@ -7,7 +7,6 @@ const controller = require('./controller');
 const app = express();
 app.use( bodyParser.json() );
 
-console.log(process.env.CONNECTION_STRING);
 massive( process.env.CONNECTION_STRING ).then( db => {
   app.set('db', db);
   console.log('connected to database');
@@ -15,8 +14,9 @@ massive( process.env.CONNECTION_STRING ).then( db => {
   console.log('failed to connect to db:', err.message);
 });
 
-
-// endpoints to come...
+app.get('/api/products', controller.getProducts);
+app.post('/api/products', controller.addProduct);
+app.delete('/api/products/:id', controller.deleteProduct);
 
 const port = 4000;
 app.listen(port, () => console.log(`Server listening on port ${port}`) );

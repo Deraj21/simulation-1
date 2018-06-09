@@ -5,7 +5,11 @@ export default class Dashboard extends Component {
 
   render() {
     
-    let items = this.props.products.map( (product, index) => Product(product.name, product.price, product.url, index + 1) );
+    let items = this.props.products.map( product => {
+      let { product_name, price, image_url, product_id } = product;
+      let { deleteProduct } = this.props;
+      return Product(product_name, price, image_url, product_id, deleteProduct);
+    } );
 
 
     return (

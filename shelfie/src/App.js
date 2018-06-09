@@ -4,49 +4,59 @@ import './reset.css';
 import Dashboard from './components/Dashboard/Dashboard';
 import Header from './components/Header/Header';
 import Form from './components/Form/Form';
+import axios from 'axios';
+
+const BASE_URL = "http://localhost:3000/api";
 
 class App extends Component {
   constructor(props){
     super(props);
 
     this.state = {
-      products: [
-        {
-          name: 'Shirt',
-          price: 13.99,
-          url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0E7FTH0n6XTMox4emx43T1wl6LeWfEDEw4fYtLqVWoR_dFZETwQ'
-        },
-        {
-          name: 'shoes',
-          price: 3.24,
-          url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvldT6L3Z5eP58xNPN8qkUTvWHkHVMz9FasY1rKBdyGUZCNpfR'
-        },
-        {
-          name: 'Llama',
-          price: 0.00,
-          url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_IERMhXbRC0toqIILJ73uYkLtv3rrrqi9n4FWqDOBj-RMNs6T'
-        },
-      ]
+      products: [],
+      selectedProduct: null
     };
 
     this.makeNewItem = this.makeNewItem.bind(this);
-
+    this.deleteItem = this.deleteItem.bind(this);
   }
 
   makeNewItem(newItem){
-    let productsTemp = this.state.products.slice();
-    productsTemp.push(newItem);
-    this.setState({ products: productsTemp });
+    axios.post(`${BASE_URL}/products`, newItem)
+      .then( response => {
+        this.setState({ products: response.data })
+      } )
+      .catch( err => {
+        console.log(`Axios Error: ${err.message}`)
+      } );
+  }
+
+  deleteItem(id){
+    console.log(`Deleting product[${id}] from db`);
+    axios.delete(`${BASE_URL}/products/${id}`)
+      .then( response => {
+        this.setState({ products: response.data })
+      })
+      .catch( err => console.log(`Axios Error: ${err.message}`) );
+  }
+
+  componentDidMount(){
+    axios.get(`${BASE_URL}/products`)
+      .then( response => {
+        this.setState({ products: response.data});
+      })
+      .catch( err => console.log(`Axios Error: ${err.message}`) );
   }
 
   render() {
+    let { products, selectedProduct } = this.state;
 
     return (
       <div className="App">
         <Header />
         <div className="body">
-          <Dashboard products={ this.state.products } />
-          <Form makeNewItem={ this.makeNewItem } />
+          <Dashboard products={ products } deleteProduct={ this.deleteItem } />
+          <Form makeNewItem={ this.makeNewItem } selectedProduct={selectedProduct} />
         </div>
         <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" />
       </div>

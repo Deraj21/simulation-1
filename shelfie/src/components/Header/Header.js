@@ -4,7 +4,8 @@ export default function Header(){
   
   return (
     <div className="header">
-      <h2>SHELFIE</h2>
+      <div className="header-icon"></div>
+      <h1>SHELFIE</h1>
     </div>
   )
 }

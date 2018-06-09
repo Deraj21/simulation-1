@@ -7,12 +7,27 @@
   background-color: #AB2A19;
   color: #FFFFFF;
   text-align: left;
-  padding: 20px 40px;
+  padding: 20px 50px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.header-icon {
+  height: 40px;
+  width: 40px;
+  background-image: url('../src/shelfie_icon.png');
+  background-size: cover;
 }
 
 h3 {
   text-align: left;
   margin: 5px;
+}
+
+.header > h1 {
+  font-size: 25px;
+  margin-left: 20px;
 }
 
 img {
@@ -22,7 +37,7 @@ img {
 }
 
 .body {
-  margin: 20px;
+  margin: 50px 125px;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -30,7 +45,7 @@ img {
 }
 
 .body div {
-  border-radius: 20px;
+  border-radius: 5px;
 }
 
 .dashboard {
@@ -40,18 +55,40 @@ img {
 .product {
   background-color: #D34735;
   margin-bottom: 20px;
-  width: 400px;
+  width: 500px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch;
 }
 
-.product img, .product div {
-  display: inline-block;
+.product img, .product > div {
   margin: 10px;
+}
+
+.product > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+  text-align: left;
+  height: 200px;
+  width: 160px;
+}
+
+.product-info-box h3 {
+  font-size: 20px;
+}
+
+.product-buttons-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .form {
   background-color: #3AD886;
   padding: 20px;
-  min-width: 300px;
+  width: 300px;
 }
 
 .form input {
@@ -73,6 +110,10 @@ button {
   border: none;
   border-radius: 10px;
   box-shadow: none;
+}
+
+.product-buttons-box button {
+  background-color: #3AD886;
 }
 
 button:hover {
