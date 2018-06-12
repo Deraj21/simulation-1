@@ -7,8 +7,8 @@ export default class Dashboard extends Component {
     
     let items = this.props.products.map( product => {
       let { product_name, price, image_url, product_id } = product;
-      let { deleteProduct } = this.props;
-      return Product(product_name, price, image_url, product_id, deleteProduct);
+      let { deleteProduct, editProduct } = this.props;
+      return Product(product_name, price, image_url, product_id, deleteProduct, editProduct);
     } );
 
 

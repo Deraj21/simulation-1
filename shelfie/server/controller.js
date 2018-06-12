@@ -20,5 +20,14 @@ module.exports = {
     db.delete_product([id])
       .then( products => res.status(200).send( products ) )
       .catch( err => console.log(`Server Error: ${err.message}`) );
+  },
+  editProduct: (req, res, next) => {
+    console.log('hello');
+    let { product_name, price, image_url } = req.body;
+    let { id } = req.params;
+    const db = req.app.get('db');
+    db.edit_product([id, product_name, price, image_url])
+      .then( products => res.status(200).send( products ) )
+      .catch( err => console.log(`Server Error: ${err.message}`) );
   }
 }

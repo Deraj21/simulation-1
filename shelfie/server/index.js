@@ -17,6 +17,7 @@ massive( process.env.CONNECTION_STRING ).then( db => {
 app.get('/api/products', controller.getProducts);
 app.post('/api/products', controller.addProduct);
 app.delete('/api/products/:id', controller.deleteProduct);
+app.put('/api/products/:id', controller.editProduct);
 
 const port = 4000;
 app.listen(port, () => console.log(`Server listening on port ${port}`) );

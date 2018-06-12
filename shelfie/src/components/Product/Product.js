@@ -2,7 +2,7 @@ import React from 'react';
 
 const PLACEHOLDER_URL = "http://via.placeholder.com/300x200";
 
-export default function Product(product_name, price, image_url, product_id, deleteProduct){
+export default function Product(product_name, price, image_url, product_id, deleteProduct, editProduct){
 
   return (
     <div className="product" key={product_id} >
@@ -14,7 +14,7 @@ export default function Product(product_name, price, image_url, product_id, dele
         </div>
         <div className="product-buttons-box">
           <button onClick={ () => deleteProduct(product_id) }>Delete</button>
-          <button>Edit</button>
+          <button onClick={ () => editProduct({product_id, product_name, price, image_url}) } >Edit</button>
         </div>
       </div>
       

@@ -19,6 +19,7 @@ class App extends Component {
 
     this.makeNewItem = this.makeNewItem.bind(this);
     this.deleteItem = this.deleteItem.bind(this);
+    this.editItem = this.editItem.bind(this);
   }
 
   makeNewItem(newItem){
@@ -40,6 +41,13 @@ class App extends Component {
       .catch( err => console.log(`Axios Error: ${err.message}`) );
   }
 
+  editItem(item){
+    this.setState({
+      selectedProduct: item,
+      selectedProductId: item.product_id
+     });
+  }
+
   componentDidMount(){
     axios.get(`${BASE_URL}/products`)
       .then( response => {
@@ -55,8 +63,8 @@ class App extends Component {
       <div className="App">
         <Header />
         <div className="body">
-          <Dashboard products={ products } deleteProduct={ this.deleteItem } />
-          <Form makeNewItem={ this.makeNewItem } selectedProduct={selectedProduct} />
+          <Dashboard products={ products } deleteProduct={ this.deleteItem } editProduct={ this.editItem }/>
+          <Form makeNewItem={ this.makeNewItem } selectedProduct={selectedProduct} selectedProductId={ selectedProduct ? selectedProduct.product_id : null } />
         </div>
         <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" />
       </div>
