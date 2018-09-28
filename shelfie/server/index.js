@@ -3,11 +3,12 @@ const bodyParser = require('body-parser');
 const massive = require('massive');
 require('dotenv').config();
 const controller = require('./controller');
+let { CONNECTION_STRING } = process.env;
 
 const app = express();
 app.use( bodyParser.json() );
 
-massive( process.env.CONNECTION_STRING ).then( db => {
+massive( CONNECTION_STRING ).then( db => {
   app.set('db', db);
   console.log('connected to database');
 }).catch( err => {

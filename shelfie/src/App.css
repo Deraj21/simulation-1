@@ -26,7 +26,8 @@ h3 {
 }
 
 .header > h1 {
-  font-size: 25px;
+  font-size: 30px;
+  font-weight: bold;
   margin-left: 20px;
 }
 
@@ -34,6 +35,17 @@ img {
   height: 200px;
   width: 300px;
   object-fit: cover;
+}
+
+button {
+  background-color: #ED6B5A;
+  height: 35px;
+  font-weight: bold;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: none;
+  cursor: pointer;
 }
 
 .body {
@@ -104,18 +116,15 @@ img {
   align-items: flex-end;
 }
 
-button {
-  background-color: #ED6B5A;
-  height: 35px;
-  border: none;
-  border-radius: 10px;
-  box-shadow: none;
-}
 
 .product-buttons-box button {
   background-color: #3AD886;
 }
 
-button:hover {
-  box-shadow: 2px 2px 5px lightgrey;
+.header-btn {
+  margin: 10px;
+}
+
+.dashboard-btn {
+  margin-left: 100px;
 }
